@@ -1,0 +1,38 @@
+{
+  "name": "user snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescriptreact",
+        "path": "./react.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./html.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./react.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./html.json"
+      },
+      {
+        "language": "html",
+        "path": "./html.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./javascript.json"
+      },
+      {
+        "language": "javascript",
+        "path": "./javascript.json"
+      }
+    ]
+  }
+}
