@@ -1,3 +1,4 @@
+local actions = require "telescope.actions"
 local config = {
 
   -- Set colorscheme
@@ -45,17 +46,14 @@ local config = {
     nui_input = true,
     telescope_select = true,
   },
-
   -- Configure plugins
   plugins = {
     -- Add plugins, the packer syntax without the "use"
     init = {
-        {
-          "ur4ltz/surround.nvim",
-          config = function()
-            require"surround".setup {mappings_style = "surround"}
-          end
-        },
+        {"mg979/vim-visual-multi"},
+        {"tpope/vim-repeat"},
+        {"tpope/vim-surround"},
+        {"tpope/vim-fugitive"},
         {
           "sainnhe/sonokai",
           config = function()
@@ -122,7 +120,12 @@ local config = {
     },
     telescope = {
       defaults = {
-
+        mappings = {
+          i = {
+            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
+          }
+        },
         prompt_prefix = " ",
         selection_caret = "❯ ",
         path_display = { "truncate" },
