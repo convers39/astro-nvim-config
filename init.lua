@@ -1,11 +1,10 @@
-local actions = require "telescope.actions"
 local config = {
 
   -- Set colorscheme
-  colorscheme = "duskfox",
+  -- colorscheme = "duskfox",
   -- colorscheme = "catppuccin",
   -- colorscheme = "sonokai",
-  -- colorscheme = "default_theme",
+  colorscheme = "default_theme",
 
   -- Default theme configuration
   default_theme = {
@@ -54,18 +53,6 @@ local config = {
         {"tpope/vim-repeat"},
         {"tpope/vim-surround"},
         {"tpope/vim-fugitive"},
-        {
-          "sainnhe/sonokai",
-          config = function()
-            vim.g.sonokai_style = "shusia"
-          end
-        },
-        {
-          "catppuccin/nvim",
-          config = function()
-            require("catppuccin").setup {}
-          end
-        },
         {
           "EdenEast/nightfox.nvim",
           config = function()
@@ -122,8 +109,8 @@ local config = {
       defaults = {
         mappings = {
           i = {
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
+            -- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            -- ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
           }
         },
         prompt_prefix = " ",
@@ -358,22 +345,26 @@ local config = {
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     local diagnostics = null_ls.builtins.diagnostics
     local code_actions = null_ls.builtins.code_actions
+    local completion = null_ls.builtins.completion
 
     null_ls.setup {
       debug = false,
       sources = {
         -- Set a formatter
-        formatting.prettier,
+        formatting.prettierd,
         formatting.rustfmt,
-        -- formatting.lua_format,
+        formatting.lua_format,
         formatting.autopep8,
         -- formatting.black,
         -- Set a linter
         diagnostics.flake8,
         diagnostics.mypy,
         diagnostics.cspell,
-        -- diagnostics.eslint,
-        code_actions.refactoring
+        diagnostics.eslint,
+        code_actions.refactoring,
+        code_actions.eslint,
+        code_actions.gitsigns,
+        completion.spell
       },
       -- NOTE: You can remove this on attach function to disable format on save
       on_attach = function(client)
