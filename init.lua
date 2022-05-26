@@ -1,10 +1,11 @@
+local actions = require "telescope.actions"
 local config = {
 
   -- Set colorscheme
-  -- colorscheme = "duskfox",
+  colorscheme = "duskfox",
   -- colorscheme = "catppuccin",
   -- colorscheme = "sonokai",
-  colorscheme = "default_theme",
+  -- colorscheme = "default_theme",
 
   -- Default theme configuration
   default_theme = {
@@ -47,6 +48,58 @@ local config = {
   },
   -- Configure plugins
   plugins = {
+    -- null-ls configuration
+    ["null-ls"] = function(config)
+      -- Formatting and linting
+      -- https://github.com/jose-elias-alvarez/null-ls.nvim
+      -- local status_ok, null_ls = pcall(require, "null-ls")
+      -- if not status_ok then
+      --   return
+      -- end
+      local null_ls = require "null-ls"
+
+      -- Check supported formatters
+      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+      local formatting = null_ls.builtins.formatting
+
+      -- Check supported linters
+      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+      local diagnostics = null_ls.builtins.diagnostics
+      local code_actions = null_ls.builtins.code_actions
+      local completion = null_ls.builtins.completion
+      config.sources = {
+        -- Set a formatter
+        formatting.prettier,
+        formatting.rustfmt,
+        -- formatting.lua_format,
+        formatting.autopep8,
+        formatting.black,
+        -- Set a linter
+        diagnostics.flake8,
+        diagnostics.mypy,
+        -- diagnostics.cspell,
+        -- diagnostics.eslint,
+        code_actions.refactoring,
+        code_actions.eslint,
+        code_actions.gitsigns,
+        completion.spell
+      }
+
+      -- NOTE: You can remove this on attach function to disable format on save
+      config.on_attach = function(client)
+        if client.resolved_capabilities.document_formatting then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            desc = "Auto format before save",
+            pattern = "<buffer>",
+            callback = vim.lsp.buf.formatting_sync,
+          })
+        end
+      end
+      return config
+      -- null_ls.setup {
+      --   debug = false,
+      -- }
+    end,
     -- Add plugins, the packer syntax without the "use"
     init = {
         {"mg979/vim-visual-multi"},
@@ -100,7 +153,7 @@ local config = {
     },
     -- All other entries override the setup() call for default plugins
     treesitter = {
-      ensure_installed = { "lua" },
+      ensure_installed = { "lua", "python", "javascript", "typescript", "tsx", "html", "css" },
     },
     packer = {
       compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
@@ -109,8 +162,8 @@ local config = {
       defaults = {
         mappings = {
           i = {
-            -- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            -- ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
+            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
           }
         },
         prompt_prefix = " ",
@@ -328,56 +381,6 @@ local config = {
     underline = true,
   },
 
-  -- null-ls configuration
-  ["null-ls"] = function()
-    -- Formatting and linting
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim
-    local status_ok, null_ls = pcall(require, "null-ls")
-    if not status_ok then
-      return
-    end
-
-    -- Check supported formatters
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-    local formatting = null_ls.builtins.formatting
-
-    -- Check supported linters
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    local diagnostics = null_ls.builtins.diagnostics
-    local code_actions = null_ls.builtins.code_actions
-    local completion = null_ls.builtins.completion
-
-    null_ls.setup {
-      debug = false,
-      sources = {
-        -- Set a formatter
-        formatting.prettierd,
-        formatting.rustfmt,
-        formatting.lua_format,
-        formatting.autopep8,
-        -- formatting.black,
-        -- Set a linter
-        diagnostics.flake8,
-        diagnostics.mypy,
-        diagnostics.cspell,
-        diagnostics.eslint,
-        code_actions.refactoring,
-        code_actions.eslint,
-        code_actions.gitsigns,
-        completion.spell
-      },
-      -- NOTE: You can remove this on attach function to disable format on save
-      on_attach = function(client)
-        if client.resolved_capabilities.document_formatting then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            desc = "Auto format before save",
-            pattern = "<buffer>",
-            callback = vim.lsp.buf.formatting_sync,
-          })
-        end
-      end,
-    }
-  end,
 
   -- This function is run last
   -- good place to configure mappings and vim options
