@@ -66,7 +66,6 @@ local config = {
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
       local diagnostics = null_ls.builtins.diagnostics
       local code_actions = null_ls.builtins.code_actions
-      local completion = null_ls.builtins.completion
       config.sources = {
         -- Set a formatter
         formatting.prettier,
@@ -82,7 +81,6 @@ local config = {
         code_actions.refactoring,
         code_actions.eslint,
         code_actions.gitsigns,
-        completion.spell
       }
 
       -- NOTE: You can remove this on attach function to disable format on save
@@ -107,20 +105,6 @@ local config = {
         {"tpope/vim-surround"},
         {"tpope/vim-fugitive"},
         {
-          "EdenEast/nightfox.nvim",
-          config = function()
-            require('nightfox').setup({
-              options = {
-                styles = {
-                  comments = "italic",
-                  keywords = "bold",
-                  types = "italic,bold",
-                },
-              }
-            })
-          end
-        },
-        {
           "folke/todo-comments.nvim",
           requires = "nvim-lua/plenary.nvim",
           config = function()
@@ -141,7 +125,21 @@ local config = {
               -- refer to the configuration section below
             }
           end
-        }
+        },
+        {
+          "EdenEast/nightfox.nvim",
+          config = function()
+            require('nightfox').setup({
+              options = {
+                styles = {
+                  comments = "italic",
+                  keywords = "bold",
+                  types = "italic,bold",
+                },
+              }
+            })
+          end
+        },
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -238,7 +236,7 @@ local config = {
       },
       window = {
         position = "left",
-        width = 25,
+        width = 30,
         mappings = {
           ["<2-LeftMouse>"] = "open",
           ["<cr>"] = "open",
