@@ -2,7 +2,8 @@ local actions = require "telescope.actions"
 local config = {
 
   -- Set colorscheme
-  colorscheme = "duskfox",
+  --[[ colorscheme = "duskfox", ]]
+  colorscheme = "gruvbox",
   -- colorscheme = "catppuccin",
   -- colorscheme = "sonokai",
   -- colorscheme = "default_theme",
@@ -41,7 +42,7 @@ local config = {
     ts_autotag = true,
   },
 
-  -- Disable AstroNvim ui features
+  -- Disable AstroNvim ui featur
   ui = {
     nui_input = true,
     telescope_select = true,
@@ -140,6 +141,9 @@ local config = {
             })
           end
         },
+        {
+          'ellisonleao/gruvbox.nvim'
+        }
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -388,10 +392,19 @@ local config = {
     -- Set options
     set.relativenumber = true
     set.foldlevel = 99
+    vim.o.background = "dark"
+    -- vim.cmd([[colorscheme gruvbox]])
 
     -- Set key bindings
     map("n", "<C-s>", ":w!<CR>")
-
+    map("n", "<M-Up>", require("smart-splits").resize_up)
+    map("n", "<M-Down>", require("smart-splits").resize_down)
+    map("n", "<M-Left>", require("smart-splits").resize_left)
+    map("n", "<M-Right>", require("smart-splits").resize_right)
+    --[[ map("n", "<leader><S-k>", ":resize +5<CR>") ]]
+    --[[ map("n", "<leader><S-j>", ":resize -5<CR>") ]]
+    --[[ map("n", "<leader><S-l>", ":vertical resize +5<CR>") ]]
+    --[[ map("n", "<leader><S-h>", ":vertical resize -5<CR>") ]]
     -- Set autocommands
     vim.api.nvim_create_augroup("packer_conf", {})
     vim.api.nvim_create_autocmd("BufWritePost", {
