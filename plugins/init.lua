@@ -77,7 +77,18 @@ return {
       }
     end,
   },
-  { "ellisonleao/gruvbox.nvim" },
+  {
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      require("gruvbox").setup {
+        constrast = "hard",
+        transparent_mode = true,
+        overrides = {
+          StatusLine = { bg = "#282828" },
+        },
+      }
+    end,
+  },
   -- { "andweeb/presence.nvim" },
   -- {
   --   "ray-x/lsp_signature.nvim",

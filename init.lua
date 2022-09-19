@@ -2,7 +2,7 @@
 local config = {
 
   -- Set colorscheme
-  --[[ colorscheme = "duskfox", ]]
+  -- colorscheme = "duskfox",
   colorscheme = "gruvbox",
   -- colorscheme = "catppuccin",
   -- colorscheme = "sonokai",
