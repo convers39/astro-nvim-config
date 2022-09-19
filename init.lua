@@ -1,4 +1,4 @@
-local actions = require "telescope.actions"
+-- local actions = require "telescope.actions"
 local config = {
 
   -- Set colorscheme
@@ -12,9 +12,7 @@ local config = {
   default_theme = {
     diagnostics_style = { italic = true },
     -- Modify the color table
-    colors = {
-      fg = "#abb2bf",
-    },
+    colors = { fg = "#abb2bf" },
     -- Modify the highlight groups
     highlights = function(highlights)
       local C = require "default_theme.colors"
@@ -42,11 +40,8 @@ local config = {
     ts_autotag = true,
   },
 
-  -- Disable AstroNvim ui featur
-  ui = {
-    nui_input = true,
-    telescope_select = true,
-  },
+  -- Disable AstroNvim ui feature
+  ui = { nui_input = true, telescope_select = true },
   -- Configure plugins
   plugins = {
     -- null-ls configuration
@@ -71,14 +66,14 @@ local config = {
         -- Set a formatter
         formatting.prettier,
         formatting.rustfmt,
-        -- formatting.lua_format,
+        formatting.stylua,
         formatting.autopep8,
-        formatting.black,
+        -- formatting.black,
         -- Set a linter
         diagnostics.flake8,
         diagnostics.mypy,
         -- diagnostics.cspell,
-        -- diagnostics.eslint,
+        diagnostics.eslint,
         code_actions.refactoring,
         code_actions.eslint,
         code_actions.gitsigns,
@@ -101,49 +96,52 @@ local config = {
     end,
     -- Add plugins, the packer syntax without the "use"
     init = {
-        {"mg979/vim-visual-multi"},
-        {"tpope/vim-repeat"},
-        {"tpope/vim-surround"},
-        {"tpope/vim-fugitive"},
-        {
-          "folke/todo-comments.nvim",
-          requires = "nvim-lua/plenary.nvim",
-          config = function()
-            require("todo-comments").setup {
-              -- your configuration comes here
-              -- or leave it empty to use the default settings
-              -- refer to the configuration section below
-            }
-          end
-        },
-        {
-          "folke/trouble.nvim",
-          requires = "kyazdani42/nvim-web-devicons",
-          config = function()
-            require("trouble").setup {
-              -- your configuration comes here
-              -- or leave it empty to use the default settings
-              -- refer to the configuration section below
-            }
-          end
-        },
-        {
-          "EdenEast/nightfox.nvim",
-          config = function()
-            require('nightfox').setup({
-              options = {
-                styles = {
-                  comments = "italic",
-                  keywords = "bold",
-                  types = "italic,bold",
-                },
-              }
-            })
-          end
-        },
-        {
-          'ellisonleao/gruvbox.nvim'
-        }
+      { "mg979/vim-visual-multi" },
+      { "tpope/vim-repeat" },
+      { "tpope/vim-surround" },
+      { "tpope/vim-fugitive" },
+      {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function()
+          require("todo-comments").setup {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+          }
+        end,
+      },
+      {
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function()
+          require("trouble").setup {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+          }
+        end,
+      },
+      {
+        "sindrets/diffview.nvim",
+        after = "plenary.nvim",
+        requires = "nvim-lua/plenary.nvim",
+      },
+      {
+        "EdenEast/nightfox.nvim",
+        config = function()
+          require("nightfox").setup {
+            options = {
+              styles = {
+                comments = "italic",
+                keywords = "bold",
+                types = "italic,bold",
+              },
+            },
+          }
+        end,
+      },
+      { "ellisonleao/gruvbox.nvim" },
       -- { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -155,7 +153,15 @@ local config = {
     },
     -- All other entries override the setup() call for default plugins
     treesitter = {
-      ensure_installed = { "lua", "python", "javascript", "typescript", "tsx", "html", "css" },
+      ensure_installed = {
+        "lua",
+        "python",
+        "javascript",
+        "typescript",
+        "tsx",
+        "html",
+        "css",
+      },
     },
     packer = {
       compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
@@ -164,14 +170,14 @@ local config = {
       defaults = {
         mappings = {
           i = {
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
-          }
+            -- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+            -- ["<M-q>"] = actions.send_to_qflist + actions.open_qflist,
+          },
         },
-        prompt_prefix = " ",
+        prompt_prefix = " 🔭 ",
         selection_caret = "❯ ",
         path_display = { "truncate" },
-        file_ignore_patterns = {"node_modules",".git"},
+        file_ignore_patterns = { "node_modules", ".git" },
         selection_strategy = "reset",
         sorting_strategy = "ascending",
         layout_strategy = "horizontal",
@@ -181,19 +187,13 @@ local config = {
             preview_width = 0.55,
             results_width = 0.8,
           },
-          vertical = {
-            mirror = false,
-          },
+          vertical = { mirror = false },
           width = 0.87,
           height = 0.80,
           preview_cutoff = 120,
         },
       },
-      pickers = {
-        find_files = {
-          hidden = true
-        }
-      },
+      pickers = { find_files = { hidden = true } },
       extensions = {},
     },
     ["neo-tree"] = {
@@ -220,10 +220,7 @@ local config = {
           folder_empty = "",
           default = "",
         },
-        name = {
-          trailing_slash = false,
-          use_git_status_colors = true,
-        },
+        name = { trailing_slash = false, use_git_status_colors = true },
         git_status = {
           symbols = {
             added = "",
@@ -286,11 +283,7 @@ local config = {
       },
       buffers = {
         show_unloaded = true,
-        window = {
-          mappings = {
-            ["bd"] = "buffer_delete",
-          },
-        },
+        window = { mappings = { ["bd"] = "buffer_delete" } },
       },
       git_status = {
         window = {
@@ -310,9 +303,7 @@ local config = {
         {
           event = "vim_buffer_enter",
           handler = function(_)
-            if vim.bo.filetype == "neo-tree" then
-              vim.wo.signcolumn = "auto"
-            end
+            if vim.bo.filetype == "neo-tree" then vim.wo.signcolumn = "auto" end
           end,
         },
       },
@@ -320,11 +311,7 @@ local config = {
   },
 
   -- Add paths for including more VS Code style snippets in luasnip
-  luasnip = {
-    vscode_snippet_paths = {
-      "./lua/user/snippets",
-    },
-  },
+  luasnip = { vscode_snippet_paths = { "./lua/user/snippets" } },
 
   -- Modify which-key registration
   ["which-key"] = {
@@ -378,11 +365,7 @@ local config = {
   },
 
   -- Diagnostics configuration (for vim.diagnostics.config({}))
-  diagnostics = {
-    virtual_text = true,
-    underline = true,
-  },
-
+  diagnostics = { virtual_text = true, underline = true },
 
   -- This function is run last
   -- good place to configure mappings and vim options
@@ -396,15 +379,43 @@ local config = {
     -- vim.cmd([[colorscheme gruvbox]])
 
     -- Set key bindings
+    local opt = { noremap = true, silent = true }
     map("n", "<C-s>", ":w!<CR>")
     map("n", "<M-Up>", require("smart-splits").resize_up)
     map("n", "<M-Down>", require("smart-splits").resize_down)
     map("n", "<M-Left>", require("smart-splits").resize_left)
     map("n", "<M-Right>", require("smart-splits").resize_right)
-    --[[ map("n", "<leader><S-k>", ":resize +5<CR>") ]]
-    --[[ map("n", "<leader><S-j>", ":resize -5<CR>") ]]
-    --[[ map("n", "<leader><S-l>", ":vertical resize +5<CR>") ]]
-    --[[ map("n", "<leader><S-h>", ":vertical resize -5<CR>") ]]
+    map("n", ";", ":", { nowait = true })
+    -- resize
+    map("n", "<A-Right>", ":vertical resize +2<CR>")
+    map("n", "<A-Left>", ":vertical resize -2<CR>")
+    map("n", "<A-Down>", ":resize -2<CR>")
+    map("n", "<A-Up>", ":resize +2<CR>")
+    map("n", "<A-=>", "<C-w>=")
+    -- navigation
+    map("n", "<A-h>", "<C-w>h")
+    map("n", "<A-j>", "<C-w>j")
+    map("n", "<A-k>", "<C-w>k")
+    map("n", "<A-l>", "<C-w>l")
+    map("n", "<A-q>", "<C-w>q")
+    map("n", "<C-u>", "10k")
+    map("n", "<C-d>", "10j")
+
+    map("t", "<A-j>", [[<C-\><C-N><C-w>j]])
+    map("t", "<A-k>", [[<C-\><C-N><C-w>k]])
+    map("t", "<A-l>", [[<C-\><C-N><C-w>l]])
+    map("t", "<A-q>", [[<C-\><C-N><C-w>q]])
+    -- split
+    map("n", "<A-v>", "<C-w>v")
+    map("n", "<A-s>", "<C-w>s")
+    -- edit
+    map("i", "<C-h>", "<ESC>I")
+    map("i", "<C-l>", "<ESC>A")
+    map("v", "J", ":move '>+1<CR>gv-gv")
+    map("v", "K", ":move '<-2<CR>gv-gv")
+    map("n", "<leader>td", "<cmd> TodoTelescope <CR>")
+    map("n", "<leader>tk", "<cmd> Telescope keymaps <CR>")
+
     -- Set autocommands
     vim.api.nvim_create_augroup("packer_conf", {})
     vim.api.nvim_create_autocmd("BufWritePost", {
@@ -415,8 +426,8 @@ local config = {
     })
 
     -- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-    vim.opt.foldmethod = 'indent'
-    vim.opt.fillchars = {eob="-",fold=" "}
+    vim.opt.foldmethod = "indent"
+    vim.opt.fillchars = { eob = "-", fold = " " }
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
