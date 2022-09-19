@@ -4,6 +4,7 @@ return {
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" },
   { "tpope/vim-fugitive" },
+  { "hrsh7th/cmp-nvim-lua", after = "cmp_luasnip" },
   {
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
