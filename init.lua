@@ -128,6 +128,11 @@ local config = {
         requires = "nvim-lua/plenary.nvim",
       },
       {
+        "MattesGroeger/vim-bookmarks",
+        config = function() require("telescope").load_extension "vim_bookmarks" end,
+      },
+      { "tom-anders/telescope-vim-bookmarks.nvim" },
+      {
         "EdenEast/nightfox.nvim",
         config = function()
           require("nightfox").setup {
@@ -194,7 +199,9 @@ local config = {
         },
       },
       pickers = { find_files = { hidden = true } },
-      extensions = {},
+      extensions = {
+        vim_bookmarks = {},
+      },
     },
     ["neo-tree"] = {
       close_if_last_window = true,
@@ -415,6 +422,12 @@ local config = {
     map("v", "K", ":move '<-2<CR>gv-gv")
     map("n", "<leader>td", "<cmd> TodoTelescope <CR>")
     map("n", "<leader>tk", "<cmd> Telescope keymaps <CR>")
+    map("n", "<leader>ma", function() require("telescope").extensions.vim_bookmarks.all() end, {
+      desc = "Show Bookmarks",
+    })
+    map("n", "<leader>mc", function() require("telescope").extensions.vim_bookmarks.current_file() end, {
+      desc = "Show Bookmarks",
+    })
 
     -- Set autocommands
     vim.api.nvim_create_augroup("packer_conf", {})
