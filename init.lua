@@ -129,9 +129,12 @@ local config = {
       },
       {
         "MattesGroeger/vim-bookmarks",
+      },
+      {
+        "tom-anders/telescope-vim-bookmarks.nvim",
+        after = "telescope.nvim",
         config = function() require("telescope").load_extension "vim_bookmarks" end,
       },
-      { "tom-anders/telescope-vim-bookmarks.nvim" },
       {
         "EdenEast/nightfox.nvim",
         config = function()
