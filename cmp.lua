@@ -32,6 +32,7 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "",
 }
+local lspkind = require "lspkind"
 return function(config)
   config.source_priority = {
     nvim_lsp = 1000,
@@ -43,24 +44,30 @@ return function(config)
   }
   config.formatting = {
     fields = { "abbr", "kind", "menu" },
-    format = function(entry, vim_item)
-      local shorten_abbr = string.sub(vim_item.abbr, 1, 30)
-      if shorten_abbr ~= vim_item.abbr then vim_item.abbr = shorten_abbr .. "..." end
-      -- Kind icons
-      vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-      -- Source
-      vim_item.menu = ({
-        buffer = "[Buf]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[LuaSnip]",
-        nvim_lua = "[API]",
-        -- latex_symbols = "[LaTeX]",
-        cmp_tabnine = "[Tabnine]",
-        path = "[Path]",
-        -- emoji = "[Emoji]",
-      })[entry.source.name]
-      return vim_item
-    end,
+    format = lspkind.cmp_format {
+      mode = "text_symbol", -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      -- The function below will be called before any actual modifications from lspkind
+      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+      before = function(entry, vim_item)
+        local shorten_abbr = string.sub(vim_item.abbr, 1, 30)
+        if shorten_abbr ~= vim_item.abbr then vim_item.abbr = shorten_abbr .. "..." end
+        -- Kind icons
+        vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+        -- Source
+        vim_item.menu = ({
+          buffer = "[Buf]",
+          nvim_lsp = "[LSP]",
+          luasnip = "[LuaSnip]",
+          nvim_lua = "[API]",
+          -- latex_symbols = "[LaTeX]",
+          cmp_tabnine = "[Tabnine]",
+          path = "[Path]",
+          -- emoji = "[Emoji]",
+        })[entry.source.name]
+        return vim_item
+      end,
+    },
   }
   return config
 end
