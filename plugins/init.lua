@@ -32,6 +32,7 @@ return {
     after = "plenary.nvim",
     requires = "nvim-lua/plenary.nvim",
   },
+  { "akinsho/git-conflict.nvim", tag = "*", config = function() require("git-conflict").setup() end },
   {
     "MattesGroeger/vim-bookmarks",
   },
@@ -81,7 +82,7 @@ return {
     "ellisonleao/gruvbox.nvim",
     config = function()
       require("gruvbox").setup {
-        constrast = "hard",
+        constrast = "soft",
         transparent_mode = true,
         overrides = {
           StatusLine = { bg = "#282828" },

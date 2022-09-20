@@ -46,12 +46,15 @@ return function()
   map("v", "K", ":move '<-2<CR>gv-gv")
   map("n", "<leader>td", "<cmd> TodoTelescope <CR>")
   map("n", "<leader>tk", "<cmd> Telescope keymaps <CR>")
-  map("n", "<leader>tm", "<cmd> Telescope project <CR>")
+  map("n", "<leader>tp", "<cmd> Telescope project <CR>")
+  map("n", "<leader>do", "<cmd> DiffviewOpen <CR>")
+  map("n", "<leader>dc", "<cmd> DiffviewClose <CR>")
+  map("n", "<leader>df", "<cmd> DiffviewFileHistory <CR>")
   map("n", "<leader>ma", function() require("telescope").extensions.vim_bookmarks.all() end, {
-    desc = "Show Bookmarks",
+    desc = "Show all bookmarks",
   })
   map("n", "<leader>mc", function() require("telescope").extensions.vim_bookmarks.current_file() end, {
-    desc = "Show Bookmarks",
+    desc = "Show current file bookmarks",
   })
 
   -- Set autocommands
