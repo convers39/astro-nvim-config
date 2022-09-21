@@ -18,7 +18,7 @@ return function(config)
   local code_actions = null_ls.builtins.code_actions
   config.sources = {
     -- Set a formatter
-    formatting.prettier,
+    formatting.prettierd,
     formatting.rustfmt,
     formatting.stylua,
     formatting.autopep8,
@@ -27,9 +27,9 @@ return function(config)
     diagnostics.flake8,
     diagnostics.mypy,
     -- diagnostics.cspell,
-    diagnostics.eslint,
+    -- diagnostics.eslint_d,
     code_actions.refactoring,
-    code_actions.eslint,
+    code_actions.eslint_d,
     code_actions.gitsigns,
   }
 
