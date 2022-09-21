@@ -56,6 +56,12 @@ return function()
   map("n", "<leader>mc", function() require("telescope").extensions.vim_bookmarks.current_file() end, {
     desc = "Show current file bookmarks",
   })
+  map(
+    "n",
+    "<leader>fs",
+    "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>",
+    { noremap = true, desc = "Telescope file browser" }
+  )
 
   -- Set autocommands
   vim.api.nvim_create_augroup("packer_conf", {})

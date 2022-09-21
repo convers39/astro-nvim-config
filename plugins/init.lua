@@ -47,6 +47,17 @@ return {
     config = function() require("telescope").load_extension "project" end,
   },
   {
+    "nvim-telescope/telescope-file-browser.nvim",
+    after = "telescope.nvim",
+    module = "telescope._extensions.file_browser",
+    config = function() require("telescope").load_extension "file_browser" end,
+  },
+  {
+    "nvim-telescope/telescope-media-files.nvim",
+    after = "telescope.nvim",
+    config = function() require("telescope").load_extension "media_files" end,
+  },
+  {
     "tzachar/cmp-tabnine",
     requires = "hrsh7th/nvim-cmp",
     run = "./install.sh",

@@ -5,72 +5,62 @@
 -- false == disabled
 -- true == 1000
 
-local kind_icons = {
-  Text = "",
-  Method = "",
-  Function = "",
-  Constructor = "",
-  Field = "ﰠ",
-  Variable = "",
-  Class = "",
-  Interface = "",
-  Module = "",
-  Property = "",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "פּ",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
+local icons = {
+  Namespace = "",
+  Text = " ",
+  Method = " ",
+  Function = " ",
+  Constructor = " ",
+  Field = "ﰠ ",
+  Variable = " ",
+  Class = "ﴯ ",
+  Interface = " ",
+  Module = " ",
+  Property = "ﰠ ",
+  Unit = "塞 ",
+  Value = " ",
+  Enum = " ",
+  Keyword = " ",
+  Snippet = " ",
+  Color = " ",
+  File = " ",
+  Reference = " ",
+  Folder = " ",
+  EnumMember = " ",
+  Constant = " ",
+  Struct = "פּ ",
+  Event = " ",
+  Operator = " ",
+  TypeParameter = " ",
+  Table = "",
+  Object = " ",
+  Tag = "",
+  Array = "[]",
+  Boolean = " ",
+  Number = " ",
+  Null = "ﳠ",
+  String = " ",
+  Calendar = "",
+  Watch = " ",
+  Package = "",
 }
-local lspkind = require "lspkind"
-return function(config)
-  config.source_priority = {
+return {
+  source_priority = {
     nvim_lsp = 1000,
     cmp_tabnine = 900,
     nvim_lua = 800,
     luasnip = 700,
     buffer = 500,
     path = 250,
-  }
-  config.formatting = {
+  },
+  formatting = {
     fields = { "abbr", "kind", "menu" },
-    format = lspkind.cmp_format {
-      mode = "text_symbol", -- show only symbol annotations
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-      -- The function below will be called before any actual modifications from lspkind
-      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-      before = function(entry, vim_item)
-        local shorten_abbr = string.sub(vim_item.abbr, 1, 30)
-        if shorten_abbr ~= vim_item.abbr then vim_item.abbr = shorten_abbr .. "..." end
-        -- Kind icons
-        vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-        -- Source
-        vim_item.menu = ({
-          buffer = "[Buf]",
-          nvim_lsp = "[LSP]",
-          luasnip = "[LuaSnip]",
-          nvim_lua = "[API]",
-          -- latex_symbols = "[LaTeX]",
-          cmp_tabnine = "[Tabnine]",
-          path = "[Path]",
-          -- emoji = "[Emoji]",
-        })[entry.source.name]
-        return vim_item
-      end,
-    },
-  }
-  return config
-end
+    format = function(_, vim_item)
+      vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
+      return vim_item
+    end,
+  },
+}
 
 -- local function has_words_before()
 --   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
