@@ -75,6 +75,7 @@ return {
       require("core.utils").add_cmp_source { name = "cmp_tabnine", priority = 1000, max_item_count = 7 }
     end,
   },
+  -- themes
   {
     "EdenEast/nightfox.nvim",
     config = function()
@@ -101,6 +102,7 @@ return {
       }
     end,
   },
+  { "sainnhe/everforest" },
   -- { "andweeb/presence.nvim" },
   -- {
   --   "ray-x/lsp_signature.nvim",

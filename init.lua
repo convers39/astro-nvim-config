@@ -3,7 +3,8 @@ local config = {
 
   -- Set colorscheme
   -- colorscheme = "duskfox",
-  colorscheme = "gruvbox",
+  -- colorscheme = "gruvbox",
+  colorscheme = "everforest",
   -- colorscheme = "catppuccin",
   -- colorscheme = "sonokai",
   -- colorscheme = "default_theme",
