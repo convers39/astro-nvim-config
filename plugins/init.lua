@@ -102,7 +102,10 @@ return {
       }
     end,
   },
+  { "luisiacc/gruvbox-baby" },
   { "sainnhe/everforest" },
+  { "sainnhe/gruvbox-material" },
+  { "savq/melange" },
   -- { "andweeb/presence.nvim" },
   -- {
   --   "ray-x/lsp_signature.nvim",

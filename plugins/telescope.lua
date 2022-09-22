@@ -25,7 +25,7 @@ return {
       preview_cutoff = 120,
     },
   },
-  pickers = { find_files = { hidden = true } },
+  pickers = { find_files = { hidden = true }, colorscheme = { enable_preview = true } },
   extensions = {
     "vim_bookmarks",
     "project",

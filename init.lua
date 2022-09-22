@@ -1,4 +1,13 @@
 -- local actions = require "telescope.actions"
+
+-- theme settings
+vim.o.background = "dark"
+vim.g.everforest_transparent_background = 2
+vim.g.gruvbox_baby_telescope_theme = 1
+vim.g.gruvbox_baby_transparent_mode = 1
+vim.g.gruvbox_material_transparent_background = 2
+vim.g.gruvbox_material_background = "hard"
+
 local config = {
 
   -- Set colorscheme

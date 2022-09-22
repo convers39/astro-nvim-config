@@ -6,8 +6,6 @@ return function()
   -- Set options
   set.relativenumber = true
   set.foldlevel = 99
-  vim.o.background = "dark"
-  -- vim.cmd([[colorscheme gruvbox]])
 
   -- Set key bindings
   local opt = { noremap = true, silent = true }
@@ -55,6 +53,9 @@ return function()
   })
   map("n", "<leader>mc", function() require("telescope").extensions.vim_bookmarks.current_file() end, {
     desc = "Show current file bookmarks",
+  })
+  map("n", "<leader>tt", "<cmd> Telescope colorscheme <CR>", {
+    desc = "Show colorscheme picker",
   })
   map(
     "n",
