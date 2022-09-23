@@ -6,12 +6,14 @@ return {
     disable = true,
   },
 
-  -- motion
+  -- motion & edit
   { "mg979/vim-visual-multi" },
 
   { "tpope/vim-repeat" },
 
   { "tpope/vim-surround" },
+
+  { "ggandor/lightspeed.nvim" },
 
   -- git
   { "tpope/vim-fugitive" },
