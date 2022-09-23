@@ -1,6 +1,6 @@
 return {
   -- "clangd",
-  "cmake",
+  -- "cmake",
   "cssls",
   "html",
   -- "intelephense",

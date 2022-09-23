@@ -1,7 +1,7 @@
 return {
   ensure_installed = {
     -- Lsp
-    "clangd",
+    -- "clangd",
     "pyright",
     "lua-language-server",
     "typescript-language-server",
@@ -15,7 +15,6 @@ return {
     -- Formatter
     "prettierd",
     -- "prettier",
-    "shfmt",
     "stylua",
     "black",
     "yamlfmt",
