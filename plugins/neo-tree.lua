@@ -73,10 +73,18 @@ return {
       hide_gitignored = false,
       hide_by_name = {
         ".git",
+        "node_modules",
+      },
+      always_show = {
+        ".gitignore",
+        ".dockerignore",
+        ".env",
+      },
+      never_show = {
+        "__pycache__",
+        ".mypycache",
         ".DS_Store",
         "thumbs.db",
-        "node_modules",
-        "__pycache__",
       },
     },
     follow_current_file = true,
