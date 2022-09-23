@@ -18,9 +18,9 @@ return {
     ["<C-s>"] = { "<C-w>s", desc = "Split window horizontally" },
 
     -- terminal
-    ["<A-i>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "toggle floating terminal" },
-    ["<A-H>"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "toggle horizontal terminal" },
-    ["<A-V>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "toggle vertical terminal" },
+    ["<A-i>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle floating terminal" },
+    ["<A-H>"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Toggle horizontal terminal" },
+    ["<A-V>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Toggle vertical terminal" },
 
     -- Aerial
     ["<C-b>"] = { "<cmd>:AerialToggle<cr>" },
@@ -29,6 +29,8 @@ return {
     ["<leader>do"] = { "<cmd> DiffviewOpen <CR>" },
     ["<leader>dc"] = { "<cmd> DiffviewClose <CR>" },
     ["<leader>df"] = { "<cmd> DiffviewFileHistory <CR>" },
+
+    -- session manager
 
     -- telescope
     ["<leader>td"] = { "<cmd> TodoTelescope <CR>", desc = "Show todo items" },
