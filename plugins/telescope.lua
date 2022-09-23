@@ -45,10 +45,12 @@ return {
         ["i"] = {
           ["<C-h>"] = fb_actions.goto_parent_dir,
           ["<C-l>"] = actions.select_default,
+          ["<C-H>"] = fb_actions.toggle_hidden,
         },
         ["n"] = {
           ["h"] = fb_actions.goto_parent_dir,
           ["l"] = actions.select_default,
+          ["H"] = fb_actions.toggle_hidden,
           -- your custom normal mode mappings
         },
       },

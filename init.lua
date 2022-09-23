@@ -54,12 +54,12 @@ local config = {
   ui = { nui_input = true, telescope_select = true },
 
   -- Modify which-key registration
-  ["which-key"] = {
-    -- Add bindings to the normal mode <leader> mappings
-    register_n_leader = {
-      -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
-    },
-  },
+  -- ["which-key"] = {
+  -- Add bindings to the normal mode <leader> mappings
+  -- register_n_leader = {
+  -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+  --   },
+  -- },
 
   -- Diagnostics configuration (for vim.diagnostics.config({}))
   diagnostics = { virtual_text = true, underline = true },
