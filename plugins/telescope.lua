@@ -1,3 +1,6 @@
+local actions = require "telescope.actions"
+local fb_actions = require("telescope").extensions.file_browser.actions
+
 return {
   defaults = {
     mappings = {
@@ -29,5 +32,26 @@ return {
   extensions = {
     "vim_bookmarks",
     "project",
+    "live_grep_args",
+    file_browser = {
+      hidden = true,
+      hijack_netrw = true,
+      grouped = true,
+      select_buffer = true,
+      sorting_strategy = "ascending",
+      initial_mode = "normal",
+      default_selection_index = 2,
+      mappings = {
+        ["i"] = {
+          ["<C-h>"] = fb_actions.goto_parent_dir,
+          ["<C-l>"] = actions.select_default,
+        },
+        ["n"] = {
+          ["h"] = fb_actions.goto_parent_dir,
+          ["l"] = actions.select_default,
+          -- your custom normal mode mappings
+        },
+      },
+    },
   },
 }

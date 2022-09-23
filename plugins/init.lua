@@ -1,5 +1,8 @@
 -- Add plugins, the packer syntax without the "use"
 return {
+  ["folke/which-key.nvim"] = {
+    disable = true,
+  },
   { "mg979/vim-visual-multi" },
   { "tpope/vim-repeat" },
   { "tpope/vim-surround" },
@@ -45,6 +48,11 @@ return {
     "nvim-telescope/telescope-project.nvim",
     after = "telescope.nvim",
     config = function() require("telescope").load_extension "project" end,
+  },
+  {
+    "nvim-telescope/telescope-live-grep-args.nvim",
+    after = "telescope.nvim",
+    config = function() require("telescope").load_extension "live_grep_args" end,
   },
   {
     "nvim-telescope/telescope-file-browser.nvim",

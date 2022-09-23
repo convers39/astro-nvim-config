@@ -1,6 +1,7 @@
 return {
   n = {
     -- ["<C-s>"] = {":w!<CR>"},
+    ["<ESC>"] = { "<cmd>nohl<cr>", desc = "No highlight" },
     [";"] = { ":", nowait = true },
     -- resize
     ["<A-l>"] = { ":vertical resize +2<CR>" },
@@ -20,14 +21,18 @@ return {
     ["<A-i>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "toggle floating terminal" },
     ["<A-H>"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "toggle horizontal terminal" },
     ["<A-V>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "toggle vertical terminal" },
+
+    -- Aerial
+    ["<C-b>"] = { "<cmd>:AerialToggle<cr>" },
+
     -- git diff view
     ["<leader>do"] = { "<cmd> DiffviewOpen <CR>" },
     ["<leader>dc"] = { "<cmd> DiffviewClose <CR>" },
     ["<leader>df"] = { "<cmd> DiffviewFileHistory <CR>" },
+
     -- telescope
     ["<leader>td"] = { "<cmd> TodoTelescope <CR>", desc = "Show todo items" },
-    ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", desc = "Show keymaps" },
-    ["<leader>tp"] = { "<cmd> Telescope project <CR>", desc = "Showl projects" },
+    ["<leader>tp"] = { "<cmd> Telescope project <CR>", desc = "Show projects" },
     ["<leader>ma"] = {
       function() require("telescope").extensions.vim_bookmarks.all() end,
       desc = "Show all bookmarks",
@@ -37,11 +42,25 @@ return {
       desc = "Show current file bookmarks",
     },
     ["<leader>tt"] = { "<cmd> Telescope colorscheme <CR>", desc = "Show colorscheme picker" },
-
-    ["<leader>tf"] = {
+    ["<leader>fs"] = {
       "<cmd>lua require 'telescope'.extensions.file_browser.file_browser()<CR>",
       desc = "Telescope file browser",
-      noremap = true,
+    },
+    ["<leader>fw"] = {
+      "<cmd>lua require 'telescope'.extensions.live_grep_args.live_grep_args()<CR>",
+      desc = "Search word with args",
+    },
+    ["<leader>fd"] = {
+      function() require("telescope.builtin").lsp_document_symbols() end,
+      desc = "Find symbols in current file",
+    },
+    ["<leader>ss"] = {
+      function() require("telescope.builtin").grep_string() end,
+      desc = "Search current word on cursor",
+    },
+    ["<leader>;"] = {
+      function() require("telescope.builtin").current_buffer_fuzzy_find() end,
+      desc = "Fuzzy find lines",
     },
   },
   v = {
