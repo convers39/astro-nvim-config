@@ -1,5 +1,6 @@
 return {
   n = {
+    -- NOTE: conflit with split
     -- ["<C-s>"] = {":w!<CR>"},
     ["<ESC>"] = { "<cmd>nohl<cr>", desc = "No highlight" },
     [";"] = { ":", nowait = true },
@@ -30,7 +31,7 @@ return {
     ["<leader>dc"] = { "<cmd> DiffviewClose <CR>" },
     ["<leader>df"] = { "<cmd> DiffviewFileHistory <CR>" },
 
-    -- session manager
+    -- TODO: session manager
 
     -- telescope
     ["<leader>td"] = { "<cmd> TodoTelescope <CR>", desc = "Show todo items" },
@@ -66,8 +67,8 @@ return {
     },
   },
   v = {
-    ["J"] = { ":move '>+1{<CR>gv-gv", desc = "Move lines of code up" },
-    ["K"] = { ":move '<-2{<CR>gv-gv", desc = "Move lines of code down" },
+    ["J"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
+    ["K"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
   },
   i = {
     ["<C-h>"] = { "<ESC>I", desc = "Insert to the first char of current line" },
