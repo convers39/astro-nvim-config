@@ -18,6 +18,10 @@ return {
     ["<A-v>"] = { "<C-w>v", desc = "Split window vertically" },
     ["<A-s>"] = { "<C-w>s", desc = "Split window horizontally" },
 
+    -- multi-cursor
+    ["<A-K>"] = { "<cmd>call vm#commands#add_cursor_up(0, v:count1)<cr>" },
+    ["<A-J>"] = { "<cmd>call vm#commands#add_cursor_down(0, v:count1)<cr>" },
+
     -- terminal
     ["<A-i>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle floating terminal" },
     ["<A-H>"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Toggle horizontal terminal" },
