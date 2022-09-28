@@ -15,8 +15,8 @@ return {
     ["<C-u>"] = { "10k", desc = "Move up 10 lines" },
     ["<C-d>"] = { "10j", desc = "Move down 10 lines" },
     -- split
-    ["<C-v>"] = { "<C-w>v", desc = "Split window vertically" },
-    ["<C-s>"] = { "<C-w>s", desc = "Split window horizontally" },
+    ["<A-v>"] = { "<C-w>v", desc = "Split window vertically" },
+    ["<A-s>"] = { "<C-w>s", desc = "Split window horizontally" },
 
     -- terminal
     ["<A-i>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle floating terminal" },
