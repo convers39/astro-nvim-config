@@ -8,12 +8,14 @@ vim.g.gruvbox_baby_transparent_mode = 1
 vim.g.gruvbox_material_transparent_background = 2
 vim.g.gruvbox_material_background = "hard"
 
+-- local schemes = { "gruvbox-material", "everforest", "nordfox", "duskfox" }
 local config = {
 
   -- Set colorscheme
+  -- colorscheme = schemes[math.random(1, 4)],
   -- colorscheme = "duskfox",
-  -- colorscheme = "gruvbox",
-  colorscheme = "everforest",
+  colorscheme = "gruvbox-material",
+  -- colorscheme = "everforest",
   -- colorscheme = "catppuccin",
   -- colorscheme = "sonokai",
   -- colorscheme = "default_theme",

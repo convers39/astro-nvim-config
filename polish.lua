@@ -6,6 +6,11 @@ return function()
   set.relativenumber = true
   set.foldlevel = 99
 
+  -- set.foldexpr = 'nvim_treesitter#foldexpr()'
+  set.foldmethod = "indent"
+  set.fillchars = { eob = "-", fold = " " }
+  -- set.tm = 1000
+
   -- Set autocommands
   vim.api.nvim_create_augroup("packer_conf", {})
   vim.api.nvim_create_autocmd("BufWritePost", {
@@ -15,9 +20,6 @@ return function()
     command = "source <afile> | PackerSync",
   })
 
-  -- vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-  vim.opt.foldmethod = "indent"
-  vim.opt.fillchars = { eob = "-", fold = " " }
   -- Set up custom filetypes
   -- vim.filetype.add {
   --   extension = {
