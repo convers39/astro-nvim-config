@@ -91,6 +91,18 @@ return {
 
   { "MattesGroeger/vim-bookmarks" },
 
+  -- docs
+  {
+    "kkoomen/vim-doge",
+    run = ":call doge#install()",
+    config = function() require("user.plugins.vim-doge-conf").setup() end,
+    cmd = { "DogeGenerate", "DogeCreateDocStandard" },
+  },
+
+  -- ["danymat/neogen"] = {
+  --   config = function() require("neogen").setup(require "user.plugins.neogen-conf") end,
+  -- },
+
   -- telescope
 
   ["tom-anders/telescope-vim-bookmarks.nvim"] = {

@@ -37,6 +37,9 @@ return {
 
     -- TODO: session manager
 
+    -- docs
+    -- ["ng"] = { "<cmd>lua require('neogen').generate()<cr>", noremap = true },
+
     -- telescope
     ["<leader>td"] = { "<cmd> TodoTelescope <CR>", desc = "Show todo items" },
     ["<leader>tp"] = { "<cmd> Telescope project <CR>", desc = "Show projects" },
