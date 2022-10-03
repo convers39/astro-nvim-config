@@ -39,6 +39,7 @@ return {
 
     -- docs
     -- ["ng"] = { "<cmd>lua require('neogen').generate()<cr>", noremap = true },
+    ["<leader>dd"] = { "<cmd>DogeGenerate<cr>" },
 
     -- telescope
     ["<leader>td"] = { "<cmd> TodoTelescope <CR>", desc = "Show todo items" },
