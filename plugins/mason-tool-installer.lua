@@ -1,34 +1,39 @@
-return {
-  ensure_installed = {
-    -- Lsp
-    -- "clangd",
-    "pyright",
-    "lua-language-server",
-    "typescript-language-server",
-    "rust-analyzer",
-    "vim-language-server",
-    "html-lsp",
-    "css-lsp",
-    "json-lsp",
-    "emmet-ls",
+local M = {}
+function M.setup()
+  return {
+    ensure_installed = {
+      -- Lsp
+      -- "clangd",
+      "pyright",
+      "lua-language-server",
+      "typescript-language-server",
+      "rust-analyzer",
+      "vim-language-server",
+      "html-lsp",
+      "css-lsp",
+      "json-lsp",
+      "emmet-ls",
 
-    -- Formatter
-    "prettierd",
-    -- "prettier",
-    "stylua",
-    "black",
-    "yamlfmt",
+      -- Formatter
+      "prettierd",
+      -- "prettier",
+      "stylua",
+      "black",
+      "yamlfmt",
 
-    -- Linter
-    "mypy",
-    "hadolint",
-    "eslint_d",
-    -- "eslint-lsp",
+      -- Linter
+      "mypy",
+      "hadolint",
+      "eslint_d",
+      -- "eslint-lsp",
 
-    -- Diagnostics
-    "cspell",
+      -- Diagnostics
+      "cspell",
 
-    -- Dap
-    -- "debugpy",
-  },
-}
+      -- Dap
+      -- "debugpy",
+    },
+  }
+end
+
+return M

@@ -66,6 +66,11 @@ return {
     end,
   },
 
+  ["WhoIsSethDaniel/mason-tool-installer.nvim"] = {
+    after = "mason.nvim",
+    config = function() require("user.plugins.mason-tool-installer").setup() end,
+  },
+
   -- enhancement
   ["folke/todo-comments.nvim"] = {
     requires = "nvim-lua/plenary.nvim",
