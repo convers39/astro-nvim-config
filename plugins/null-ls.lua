@@ -33,16 +33,16 @@ return function(config)
     code_actions.gitsigns,
   }
 
-  -- NOTE: You can remove this on attach function to disable format on save
-  config.on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        desc = "Auto format before save",
-        pattern = "<buffer>",
-        callback = vim.lsp.buf.formatting_sync,
-      })
-    end
-  end
+  -- NOTE: from v2 format on save is default setting
+  -- config.on_attach = function(client)
+  --   if client.server_capabilities.documentFormattingProvider then
+  --     vim.api.nvim_create_autocmd("BufWritePre", {
+  --       desc = "Auto format before save",
+  --       pattern = "<buffer>",
+  --       callback = vim.lsp.buf.format,
+  --     })
+  --   end
+  -- end
   return config
   -- null_ls.setup {
   --   debug = false,
