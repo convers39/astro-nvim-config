@@ -6,8 +6,8 @@ return function()
   set.relativenumber = true
   set.foldlevel = 99
 
-  -- set.foldexpr = 'nvim_treesitter#foldexpr()'
-  set.foldmethod = "indent"
+  set.foldexpr = "nvim_treesitter#foldexpr()"
+  -- set.foldmethod = "indent"
   set.fillchars = { eob = "-", fold = " " }
   -- set.tm = 1000
 

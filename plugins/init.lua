@@ -15,6 +15,10 @@ return {
 
   { "ggandor/lightspeed.nvim" },
 
+  -- { "chaoren/vim-wordmotion" },
+
+  { "andymass/vim-matchup" },
+
   -- git
   { "tpope/vim-fugitive" },
 
@@ -69,6 +73,13 @@ return {
   ["WhoIsSethDaniel/mason-tool-installer.nvim"] = {
     after = "mason.nvim",
     config = function() require("user.plugins.mason-tool-installer").setup() end,
+  },
+
+  ["ThePrimeagen/refactoring.nvim"] = {
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "nvim-treesitter/nvim-treesitter" },
+    },
   },
 
   -- enhancement
