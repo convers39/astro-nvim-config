@@ -28,7 +28,7 @@ function M.setup()
       -- "eslint-lsp",
 
       -- Diagnostics
-      "cspell",
+      -- "cspell",
 
       -- Dap
       -- "debugpy",
