@@ -1,6 +1,8 @@
+local toggle_term_cmd = astronvim.toggle_term_cmd
+
 return {
   n = {
-    -- NOTE: conflit with split
+    -- NOTE: conflict with split
     -- ["<C-s>"] = {":w!<CR>"},
     ["<ESC>"] = { "<cmd>nohl<cr>", desc = "No highlight" },
     [";"] = { ":", nowait = true },
@@ -26,6 +28,15 @@ return {
     ["<A-i>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle floating terminal" },
     ["<A-H>"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Toggle horizontal terminal" },
     ["<A-V>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Toggle vertical terminal" },
+    -- ["<leader>gg"] = { function() toggle_term_cmd "lazygit" end, desc = "ToggleTerm lazygit" },
+    -- ["<leader>tn"] = { function() toggle_term_cmd "node" end, desc = "ToggleTerm node" },
+    -- ["<leader>tu"] = { function() toggle_term_cmd "gdu" end, desc = "ToggleTerm gdu" },
+    ["<leader>tp"] = { function() toggle_term_cmd "python3" end, desc = "ToggleTerm python" },
+    ["<leader>tb"] = { function() toggle_term_cmd "btop" end, desc = "ToggleTerm btm" },
+    ["<leader>tl"] = false,
+    ["<leader>tf"] = false,
+    ["<leader>th"] = false,
+    ["<leader>tv"] = false,
 
     -- Aerial
     ["<C-b>"] = { "<cmd>:AerialToggle<cr>" },
@@ -42,8 +53,9 @@ return {
     ["<leader>dd"] = { "<cmd>DogeGenerate<cr>" },
 
     -- telescope
+    ["<leader>tc"] = { "<cmd> Cheatsheet <CR>", desc = "Show cheatsheet" },
     ["<leader>td"] = { "<cmd> TodoTelescope <CR>", desc = "Show todo items" },
-    ["<leader>tp"] = { "<cmd> Telescope project <CR>", desc = "Show projects" },
+    ["<leader>pj"] = { "<cmd> Telescope project <CR>", desc = "Show projects" },
     ["<leader>ma"] = {
       function() require("telescope").extensions.vim_bookmarks.all() end,
       desc = "Show all bookmarks",
