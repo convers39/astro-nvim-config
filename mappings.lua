@@ -33,27 +33,36 @@ return {
     -- ["<leader>tu"] = { function() toggle_term_cmd "gdu" end, desc = "ToggleTerm gdu" },
     ["<leader>tp"] = { function() toggle_term_cmd "python3" end, desc = "ToggleTerm python" },
     ["<leader>tb"] = { function() toggle_term_cmd "btop" end, desc = "ToggleTerm btm" },
+    ["<leader>tc"] = { function() toggle_term_cmd "navi" end, desc = "ToggleTerm navi" },
     ["<leader>tl"] = false,
     ["<leader>tf"] = false,
     ["<leader>th"] = false,
     ["<leader>tv"] = false,
 
+    -- close buffer
+    ["<leader>C"] = {
+      '<cmd>sil! exe "wa|%bd|e#|bd#|normal `"<cr>"',
+      desc = "Save and close other buffers",
+    },
+    ["<leader>bo"] = {
+      '<cmd>sil! exe "%bd|e#|bd#|normal `"<cr>"',
+      desc = "Close other buffers except unsaved",
+    },
+
     -- Aerial
-    ["<C-b>"] = { "<cmd>:AerialToggle<cr>" },
+    ["<C-b>"] = { "<cmd>AerialToggle<cr>" },
 
     -- git diff view
     ["<leader>do"] = { "<cmd> DiffviewOpen <CR>" },
     ["<leader>dc"] = { "<cmd> DiffviewClose <CR>" },
     ["<leader>df"] = { "<cmd> DiffviewFileHistory <CR>" },
 
-    -- TODO: session manager
-
     -- docs
     -- ["ng"] = { "<cmd>lua require('neogen').generate()<cr>", noremap = true },
     ["<leader>dd"] = { "<cmd>DogeGenerate<cr>" },
 
     -- telescope
-    ["<leader>tc"] = { "<cmd> Cheatsheet <CR>", desc = "Show cheatsheet" },
+    -- ["<leader>tc"] = { "<cmd> Cheatsheet <CR>", desc = "Show cheatsheet" },
     ["<leader>td"] = { "<cmd> TodoTelescope <CR>", desc = "Show todo items" },
     ["<leader>pj"] = { "<cmd> Telescope project <CR>", desc = "Show projects" },
     ["<leader>ma"] = {
@@ -76,6 +85,15 @@ return {
     ["<leader>fd"] = {
       function() require("telescope.builtin").lsp_document_symbols() end,
       desc = "Find symbols in current file",
+    },
+    ["<leader>fb"] = {
+      function()
+        require("telescope.builtin").buffers {
+          sort_mru = true,
+          ignore_current_buffer = true,
+        }
+      end,
+      desc = "Find buffers in mru order",
     },
     ["<leader>ss"] = {
       function() require("telescope.builtin").grep_string() end,
