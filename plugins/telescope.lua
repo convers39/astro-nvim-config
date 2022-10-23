@@ -34,6 +34,7 @@ return {
     "vim_bookmarks",
     "project",
     "live_grep_args",
+    "frecency",
     file_browser = {
       hidden = true,
       hijack_netrw = true,

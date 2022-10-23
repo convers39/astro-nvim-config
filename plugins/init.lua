@@ -114,6 +114,19 @@ return {
 
   { "MattesGroeger/vim-bookmarks" },
 
+  { "kkharji/sqlite.lua" },
+
+  {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      { "kkharji/sqlite.lua", module = "sqlite" },
+      -- you'll need at least one of these
+      -- {'nvim-telescope/telescope.nvim'},
+      -- {'ibhagwan/fzf-lua'},
+    },
+    config = function() require("neoclip").setup() end,
+  },
+
   {
     "michaelb/sniprun",
     run = "bash ./install.sh",
@@ -168,6 +181,12 @@ return {
     config = function() require("telescope").load_extension "file_browser" end,
   },
 
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    after = "telescope.nvim",
+    config = function() require("telescope").load_extension "frecency" end,
+    requires = { "kkharji/sqlite.lua" },
+  },
   -- ["nvim-telescope/telescope-media-files.nvim"] = {
   --   after = "telescope.nvim",
   --   config = function() require("telescope").load_extension "media_files" end,
@@ -175,6 +194,9 @@ return {
 
   -- themes
   { "folke/tokyonight.nvim" },
+
+  { "marko-cerovac/material.nvim" },
+
   ["EdenEast/nightfox.nvim"] = {
     config = function()
       require("nightfox").setup {

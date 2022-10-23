@@ -16,7 +16,15 @@ return {
     ["<C-u>"] = { "10k", desc = "Move up 10 lines" },
     ["<C-d>"] = { "10j", desc = "Move down 10 lines" },
     ["<A-t>"] = {
-      function() require("bufferline").go_to_buffer(vim.fn.input "Buf number: ", true) end,
+      function()
+        local input = vim.fn.input "Buf number: "
+        local num = tonumber(input, 10)
+        if num == nil then
+          return
+        else
+          require("bufferline").go_to_buffer(num, true)
+        end
+      end,
       desc = "Go to buffer by absolute number",
       noremap = true,
       silent = true,
@@ -84,6 +92,11 @@ return {
 
     -- telescope
     -- ["<leader>tc"] = { "<cmd> Cheatsheet <CR>", desc = "Show cheatsheet" },
+    ["<leader><leader>"] = {
+      "<Cmd>lua require('telescope').extensions.frecency.frecency({workspace='CWD'})<CR>",
+      noremap = true,
+      silent = true,
+    },
     ["<leader>td"] = { "<cmd> TodoTelescope <CR>", desc = "Show todo items" },
     ["<leader>pj"] = { "<cmd> Telescope project <CR>", desc = "Show projects" },
     ["<leader>ma"] = {
