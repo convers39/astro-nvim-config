@@ -11,11 +11,18 @@ return {
 
   { "tpope/vim-repeat" },
 
-  { "tpope/vim-surround" },
+  -- { "tpope/vim-surround" },
+  {
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
 
   { "ggandor/lightspeed.nvim" },
-
-  -- { "chaoren/vim-wordmotion" },
 
   { "andymass/vim-matchup" },
 
@@ -167,6 +174,7 @@ return {
   -- },
 
   -- themes
+  { "folke/tokyonight.nvim" },
   ["EdenEast/nightfox.nvim"] = {
     config = function()
       require("nightfox").setup {
@@ -184,7 +192,7 @@ return {
   ["ellisonleao/gruvbox.nvim"] = {
     config = function()
       require("gruvbox").setup {
-        constrast = "soft",
+        contrast = "soft",
         transparent_mode = true,
         overrides = {
           StatusLine = { bg = "#282828" },
