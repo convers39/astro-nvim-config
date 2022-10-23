@@ -1,5 +1,4 @@
 local toggle_term_cmd = astronvim.toggle_term_cmd
-
 return {
   n = {
     -- NOTE: conflict with split
@@ -16,6 +15,25 @@ return {
     -- navigation
     ["<C-u>"] = { "10k", desc = "Move up 10 lines" },
     ["<C-d>"] = { "10j", desc = "Move down 10 lines" },
+    ["<A-t>"] = {
+      function() require("bufferline").go_to_buffer(vim.fn.input "Buf number: ", true) end,
+      desc = "Go to buffer by absolute number",
+      noremap = true,
+      silent = true,
+    },
+    ["<A-1>"] = { function() require("bufferline").go_to_buffer(1, false) end, noremap = true, silent = true },
+    ["<A-2>"] = { function() require("bufferline").go_to_buffer(2, false) end, noremap = true, silent = true },
+    ["<A-3>"] = { function() require("bufferline").go_to_buffer(3, false) end, noremap = true, silent = true },
+    ["<A-4>"] = { function() require("bufferline").go_to_buffer(4, false) end, noremap = true, silent = true },
+    ["<A-5>"] = { function() require("bufferline").go_to_buffer(5, false) end, noremap = true, silent = true },
+    ["<A-6>"] = { function() require("bufferline").go_to_buffer(6, false) end, noremap = true, silent = true },
+    ["<A-7>"] = { function() require("bufferline").go_to_buffer(7, false) end, noremap = true, silent = true },
+    ["<A-8>"] = { function() require("bufferline").go_to_buffer(8, false) end, noremap = true, silent = true },
+    ["<A-9>"] = { function() require("bufferline").go_to_buffer(9, false) end, noremap = true, silent = true },
+    ["<A-0>"] = { function() require("bufferline").go_to_buffer(-1, false) end, noremap = true, silent = true },
+    ["<A->>"] = { "<cmd>BufferLineMoveNext<CR>", noremap = true, silent = true },
+    ["<A-<>"] = { "<cmd>BufferLineMovePrev<CR>", noremap = true, silent = true },
+
     -- split
     ["<A-v>"] = { "<C-w>v", desc = "Split window vertically" },
     ["<A-s>"] = { "<C-w>s", desc = "Split window horizontally" },
@@ -29,9 +47,9 @@ return {
     ["<A-H>"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Toggle horizontal terminal" },
     ["<A-V>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "Toggle vertical terminal" },
     -- ["<leader>gg"] = { function() toggle_term_cmd "lazygit" end, desc = "ToggleTerm lazygit" },
-    -- ["<leader>tn"] = { function() toggle_term_cmd "node" end, desc = "ToggleTerm node" },
+    ["<leader>tn"] = { function() toggle_term_cmd "node-prototype-repl" end, desc = "ToggleTerm node" },
     -- ["<leader>tu"] = { function() toggle_term_cmd "gdu" end, desc = "ToggleTerm gdu" },
-    ["<leader>tp"] = { function() toggle_term_cmd "python3" end, desc = "ToggleTerm python" },
+    ["<leader>tp"] = { function() toggle_term_cmd "ipython" end, desc = "ToggleTerm python" },
     ["<leader>tb"] = { function() toggle_term_cmd "btop" end, desc = "ToggleTerm btm" },
     ["<leader>tc"] = { function() toggle_term_cmd "navi" end, desc = "ToggleTerm navi" },
     ["<leader>tl"] = false,
@@ -59,7 +77,10 @@ return {
 
     -- docs
     -- ["ng"] = { "<cmd>lua require('neogen').generate()<cr>", noremap = true },
-    ["<leader>dd"] = { "<cmd>DogeGenerate<cr>" },
+    ["<leader>dd"] = { "<cmd>DogeGenerate<cr>", desc = "Generate documentation template" },
+
+    -- code runner
+    ["<leader>r"] = { "<cmd>SnipRun<cr>" },
 
     -- telescope
     -- ["<leader>tc"] = { "<cmd> Cheatsheet <CR>", desc = "Show cheatsheet" },
@@ -105,8 +126,11 @@ return {
     },
   },
   v = {
+    [";"] = { ":", nowait = true },
     ["J"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
     ["K"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
+    -- code runner
+    ["<leader>r"] = { "<cmd>SnipRun<cr>" },
   },
   i = {
     ["<C-h>"] = { "<ESC>I", desc = "Insert to the first char of current line" },

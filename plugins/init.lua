@@ -107,6 +107,12 @@ return {
 
   { "MattesGroeger/vim-bookmarks" },
 
+  {
+    "michaelb/sniprun",
+    run = "bash ./install.sh",
+    config = function() require "user.plugins.sniprun" end,
+  },
+
   -- docs
   {
     "kkoomen/vim-doge",
@@ -118,6 +124,19 @@ return {
   -- ["danymat/neogen"] = {
   --   config = function() require("neogen").setup(require "user.plugins.neogen-conf") end,
   -- },
+
+  -- ["sudormrfbin/cheatsheet.nvim"] = {
+  --   requires = {
+  --     { "nvim-telescope/telescope.nvim" },
+  --     { "nvim-lua/popup.nvim" },
+  --     { "nvim-lua/plenary.nvim" },
+  --   },
+  -- },
+
+  -- ui
+  ["tiagovla/scope.nvim"] = {
+    config = function() require("scope").setup() end,
+  },
 
   -- telescope
 
