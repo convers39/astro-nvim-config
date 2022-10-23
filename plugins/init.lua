@@ -120,12 +120,12 @@ return {
     "AckslD/nvim-neoclip.lua",
     requires = {
       { "kkharji/sqlite.lua", module = "sqlite" },
-      -- you'll need at least one of these
-      -- {'nvim-telescope/telescope.nvim'},
-      -- {'ibhagwan/fzf-lua'},
+      { "nvim-telescope/telescope.nvim" },
     },
     config = function() require("neoclip").setup() end,
   },
+
+  { "nacro90/numb.nvim" },
 
   {
     "michaelb/sniprun",
