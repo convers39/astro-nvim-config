@@ -159,6 +159,13 @@ return {
     ["<C-l>"] = { "<ESC>A", desc = "Insert to the last char of current line" },
   },
   t = {
+    ["<esc>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
+    -- resize
+    ["<A-l>"] = { "<C-\\><C-n>:vertical resize +5<CR>" },
+    ["<A-h>"] = { "<C-\\><C-n>:vertical resize -5<CR>" },
+    ["<A-j>"] = { "<C-\\><C-n>:resize -5<CR>" },
+    ["<A-k>"] = { "<C-\\><C-n>:resize +5<CR>" },
+    -- toggle
     ["<A-i>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "toggle floating terminal" },
     ["<A-H>"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "toggle horizontal terminal" },
     ["<A-V>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "toggle vertical terminal" },
