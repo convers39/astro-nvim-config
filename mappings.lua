@@ -93,7 +93,7 @@ return {
     -- telescope
     -- ["<leader>tc"] = { "<cmd> Cheatsheet <CR>", desc = "Show cheatsheet" },
     ["<leader><leader>"] = {
-      "<Cmd>lua require('telescope').extensions.frecency.frecency({workspace='CWD'})<CR>",
+      "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>",
       noremap = true,
       silent = true,
     },

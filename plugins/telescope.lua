@@ -34,7 +34,10 @@ return {
     "vim_bookmarks",
     "project",
     "live_grep_args",
-    "frecency",
+    frecency = {
+      default_workspace = "CWD",
+      show_unindexed = false,
+    },
     file_browser = {
       hidden = true,
       hijack_netrw = true,
