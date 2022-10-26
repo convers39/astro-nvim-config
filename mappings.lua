@@ -79,9 +79,18 @@ return {
     ["<C-b>"] = { "<cmd>AerialToggle<cr>" },
 
     -- git diff view
-    ["<leader>do"] = { "<cmd> DiffviewOpen <CR>" },
-    ["<leader>dc"] = { "<cmd> DiffviewClose <CR>" },
-    ["<leader>df"] = { "<cmd> DiffviewFileHistory <CR>" },
+    ["gdo"] = { "<cmd>DiffviewOpen<CR>" },
+    ["gdc"] = { "<cmd>DiffviewClose<CR>" },
+    ["gdf"] = { "<cmd>DiffviewFileHistory<CR>" },
+
+    -- git conflict
+    ["gco"] = { "<cmd>GitConflictChooseOurs<CR>" },
+    ["gct"] = { "<cmd>GitConflictChooseTheirs<CR>" },
+    ["gcb"] = { "<cmd>GitConflictChooseBoth<CR>" },
+    ["gcN"] = { "<cmd>GitConflictChooseNone<CR>" },
+    ["gcn"] = { "<cmd>GitConflictNextConflict<CR>" },
+    ["gcp"] = { "<cmd>GitConflictPrevConflict<CR>" },
+    ["gcq"] = { "<cmd>GitConflictListQf<CR>" },
 
     -- docs
     -- ["ng"] = { "<cmd>lua require('neogen').generate()<cr>", noremap = true },
