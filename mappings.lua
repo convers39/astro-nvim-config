@@ -159,7 +159,7 @@ return {
     ["<C-l>"] = { "<ESC>A", desc = "Insert to the last char of current line" },
   },
   t = {
-    ["<esc>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
+    ["<A-n>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
     -- resize
     ["<A-l>"] = { "<C-\\><C-n>:vertical resize +5<CR>" },
     ["<A-h>"] = { "<C-\\><C-n>:vertical resize -5<CR>" },
