@@ -78,7 +78,33 @@ return {
     -- Aerial
     ["<C-b>"] = { "<cmd>AerialToggle<cr>" },
 
-    -- git diff view
+    -- trouble
+    ["<leader>xx"] = { "<cmd>TroubleToggle document_diagnostics<cr>", noremap = true, silent = true },
+    ["<leader>xq"] = { "<cmd>TroubleToggle quickfix<cr>", noremap = true, silent = true },
+    ["<leader>xl"] = { "<cmd>TroubleToggle loclist<cr>", noremap = true, silent = true },
+    ["<leader>xr"] = { "<cmd>TroubleToggle lsp_references<cr>", noremap = true, silent = true },
+    ["gxj"] = {
+      function() require("trouble").next { skip_groups = true, jump = true } end,
+      noremap = true,
+      silent = true,
+    },
+    ["gxk"] = {
+      function() require("trouble").previous { skip_groups = true, jump = true } end,
+      noremap = true,
+      silent = true,
+    },
+    ["gxf"] = {
+      function() require("trouble").first { skip_groups = true, jump = true } end,
+      noremap = true,
+      silent = true,
+    },
+    ["gxl"] = {
+      function() require("trouble").last { skip_groups = true, jump = true } end,
+      noremap = true,
+      silent = true,
+    },
+
+    -- git diff vieww
     ["gdo"] = { "<cmd>DiffviewOpen<CR>" },
     ["gdc"] = { "<cmd>DiffviewClose<CR>" },
     ["gdf"] = { "<cmd>DiffviewFileHistory<CR>" },
@@ -87,10 +113,21 @@ return {
     ["gco"] = { "<cmd>GitConflictChooseOurs<CR>" },
     ["gct"] = { "<cmd>GitConflictChooseTheirs<CR>" },
     ["gcb"] = { "<cmd>GitConflictChooseBoth<CR>" },
-    ["gcN"] = { "<cmd>GitConflictChooseNone<CR>" },
-    ["gcn"] = { "<cmd>GitConflictNextConflict<CR>" },
-    ["gcp"] = { "<cmd>GitConflictPrevConflict<CR>" },
+    ["gcn"] = { "<cmd>GitConflictChooseNone<CR>" },
+    ["gcj"] = { "<cmd>GitConflictNextConflict<CR>" },
+    ["gck"] = { "<cmd>GitConflictPrevConflict<CR>" },
     ["gcq"] = { "<cmd>GitConflictListQf<CR>" },
+
+    -- gitsigns
+    ["ghj"] = { function() require("gitsigns").next_hunk() end, desc = "Next git hunk" },
+    ["ghk"] = { function() require("gitsigns").prev_hunk() end, desc = "Previous git hunk" },
+    ["gbl"] = { function() require("gitsigns").blame_line() end, desc = "View git blame" },
+    ["ghp"] = { function() require("gitsigns").preview_hunk() end, desc = "Preview git hunk" },
+    ["ghr"] = { function() require("gitsigns").reset_hunk() end, desc = "Reset git hunk" },
+    ["ghs"] = { function() require("gitsigns").stage_hunk() end, desc = "Stage git hunk" },
+    ["ghu"] = { function() require("gitsigns").undo_stage_hunk() end, desc = "Unstage git hunk" },
+    ["gbr"] = { function() require("gitsigns").reset_buffer() end, desc = "Reset git buffer" },
+    -- ["gd"] = { function() require("gitsigns").diffthis() end, desc = "View git diff" },
 
     -- docs
     -- ["ng"] = { "<cmd>lua require('neogen').generate()<cr>", noremap = true },
@@ -153,6 +190,9 @@ return {
     ["K"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
     -- code runner
     ["<leader>r"] = { "<cmd>SnipRun<cr>" },
+    -- gitsigns
+    ["ghr"] = { function() require("gitsigns").reset_hunk() end, desc = "Reset git hunk" },
+    ["ghs"] = { function() require("gitsigns").stage_hunk() end, desc = "Stage git hunk" },
   },
   i = {
     ["<C-h>"] = { "<ESC>I", desc = "Insert to the first char of current line" },
