@@ -68,6 +68,10 @@ return {
     end,
   },
 
+  ["windwp/nvim-ts-autotag"] = {
+    config = function() require("nvim-ts-autotag").setup() end,
+  },
+
   ["simrat39/rust-tools.nvim"] = {
     after = "mason-lspconfig.nvim", -- make sure to load after mason-lspconfig
     config = function()
