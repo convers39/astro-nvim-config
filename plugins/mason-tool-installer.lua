@@ -15,8 +15,8 @@ function M.setup()
       "emmet-ls",
 
       -- Formatter
-      "prettierd",
-      -- "prettier",
+      -- "prettierd",
+      "prettier",
       "stylua",
       "black",
       "yamlfmt",

@@ -18,7 +18,8 @@ return function(config)
   local code_actions = null_ls.builtins.code_actions
   config.sources = {
     -- Set a formatter
-    formatting.prettierd,
+    -- formatting.prettierd,
+    formatting.prettier,
     formatting.rustfmt,
     formatting.stylua,
     formatting.black,
@@ -30,7 +31,8 @@ return function(config)
     -- diagnostics.eslint_d,
     code_actions.refactoring,
     code_actions.eslint_d,
-    code_actions.gitsigns,
+    -- code_actions.eslint,
+    -- code_actions.gitsigns,
   }
 
   -- NOTE: from v2 format on save is default setting
