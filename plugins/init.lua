@@ -41,6 +41,7 @@ return {
 
   ["tzachar/cmp-tabnine"] = {
     requires = "hrsh7th/nvim-cmp",
+    after = "nvim-cmp",
     run = "./install.sh",
     config = function()
       require("cmp_tabnine.config").setup {
