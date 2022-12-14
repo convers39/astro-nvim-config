@@ -10,6 +10,8 @@ return {
   "rust_analyzer",
   "sqls",
   "sumneko_lua",
+  "eslint",
+  "emmet_ls",
   -- "texlab",
   "tsserver",
   "yamlls",

@@ -20,12 +20,13 @@ function M.setup()
       "stylua",
       "black",
       "yamlfmt",
+      "marksman",
 
       -- Linter
       "mypy",
       "hadolint",
       "eslint_d",
-      -- "eslint-lsp",
+      "eslint-lsp",
 
       -- Diagnostics
       -- "cspell",
