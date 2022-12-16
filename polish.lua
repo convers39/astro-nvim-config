@@ -5,11 +5,13 @@ return function()
   -- Set options
   set.relativenumber = true
   set.foldlevel = 99
+  -- set.cmdheight = 1
 
   set.foldexpr = "nvim_treesitter#foldexpr()"
   -- set.foldmethod = "indent"
   set.fillchars = { eob = "-", fold = " " }
   -- set.tm = 1000
+  set.linebreak = true
 
   -- Set autocommands
   vim.api.nvim_create_augroup("packer_conf", {})
