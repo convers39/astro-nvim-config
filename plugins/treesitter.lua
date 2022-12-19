@@ -17,5 +17,8 @@ return {
     "vim",
     "yaml",
     "rust",
+    "hcl",
+    "graphql",
+    "help",
   },
 }

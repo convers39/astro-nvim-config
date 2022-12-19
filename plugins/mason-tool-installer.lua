@@ -13,6 +13,8 @@ function M.setup()
       "css-lsp",
       "json-lsp",
       "emmet-ls",
+      "graphql",
+      "terraform-ls",
 
       -- Formatter
       -- "prettierd",
@@ -34,6 +36,9 @@ function M.setup()
       -- Dap
       -- "debugpy",
     },
+    auto_update = false,
+    run_on_start = true,
+    start_delay = 3000,
   }
 end
 
