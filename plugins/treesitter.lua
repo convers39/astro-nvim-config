@@ -20,5 +20,8 @@ return {
     "hcl",
     "graphql",
     "help",
+    "terraform",
+    "sql",
+    "jsdoc",
   },
 }
