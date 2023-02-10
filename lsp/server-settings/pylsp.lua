@@ -1,3 +1,4 @@
+-- https://github.com/python-lsp/python-lsp-server/blob/develop/CONFIGURATION.md
 return {
   settings = {
     pylsp = {
