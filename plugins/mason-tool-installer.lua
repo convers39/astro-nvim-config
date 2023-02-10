@@ -4,9 +4,10 @@ function M.setup()
     ensure_installed = {
       -- Lsp
       -- "clangd",
-      "pyright",
+      -- "pyright",
       "lua-language-server",
       "typescript-language-server",
+      "python-language-server",
       "rust-analyzer",
       "vim-language-server",
       "html-lsp",
