@@ -6,6 +6,7 @@ return {
       plugins = {
         flake8 = {
           enabled = true,
+          maxLineLength = 88,
         },
         -- NOTE: flake8 included pycodestyle and pyflakes
         pycodestyle = {
