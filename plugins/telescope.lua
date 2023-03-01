@@ -14,7 +14,7 @@ return {
     -- prompt_prefix = "  ",
     selection_caret = "❯ ",
     path_display = { "truncate" },
-    file_ignore_patterns = { "node_modules", ".git" },
+    file_ignore_patterns = { "node_modules", ".git/" },
     selection_strategy = "reset",
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
