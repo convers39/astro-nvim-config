@@ -4,7 +4,7 @@ return {
     -- NOTE: conflict with split
     -- ["<C-s>"] = {":w!<CR>"},
     ["<ESC>"] = { "<cmd>nohl<cr>", desc = "No highlight" },
-    [";"] = { ":", nowait = true },
+    [";"] = { "<cmd>FineCmdline<cr>", nowait = true, desc = "Floating cmd input" },
     -- resize
     ["<A-l>"] = { ":vertical resize +2<CR>" },
     ["<A-h>"] = { ":vertical resize -2<CR>" },
@@ -185,7 +185,8 @@ return {
     },
   },
   v = {
-    [";"] = { ":", nowait = true },
+    -- [";"] = { ":", nowait = true },
+    [";"] = { "<cmd>FineCmdline<cr>", nowait = true, desc = "Floating cmd input" },
     ["J"] = { ":move '>+1<CR>gv-gv", desc = "Move lines of code up" },
     ["K"] = { ":move '<-2<CR>gv-gv", desc = "Move lines of code down" },
     -- code runner
