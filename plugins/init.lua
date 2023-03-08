@@ -117,6 +117,18 @@ return {
     end,
   },
 
+  -- ["dnlhc/glance.nvim"] = {
+  --   config = function()
+  --     require("glance").setup {
+  --       -- your configuration
+  --     }
+  --   end,
+  -- },
+
+  ["rmagatti/goto-preview"] = {
+    config = function() require("goto-preview").setup { opacity = 20, dismiss_on_move = true } end,
+  },
+
   { "MattesGroeger/vim-bookmarks" },
 
   { "kkharji/sqlite.lua" },

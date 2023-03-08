@@ -136,6 +136,20 @@ return {
     -- code runner
     ["<leader>r"] = { "<cmd>SnipRun<cr>" },
 
+    -- lsp
+    -- ["gD"] = { "<CMD>Glance definitions<CR>", desc = "Peek definitions" },
+    -- ["gR"] = { "<CMD>Glance references<CR>", desc = "Peek references" },
+    -- ["gY"] = { "<CMD>Glance type_definitions<CR>", desc = "Peek type definitions" },
+    -- ["gM"] = { "<CMD>Glance implementations<CR>", desc = "Peek implementations" },
+
+    ["gpd"] = { "<CMD>lua require('goto-preview').goto_preview_definition()<CR>", desc = "Preview definitions" },
+    ["gpr"] = { "<CMD>lua require('goto-preview').goto_preview_references()<CR>", desc = "Preview references" },
+    ["gpt"] = {
+      "<CMD>lua require('goto-preview').goto_preview_type_definition()<CR>",
+      desc = "Preview type definitions",
+    },
+    ["gpi"] = { "<CMD>lua require('goto-preview').goto_preview_implementation()<CR>", desc = "Preview implementations" },
+    ["gpc"] = { "<CMD>lua require('goto-preview').close_all_win()<CR>", desc = "close preview windows" },
     -- telescope
     -- ["<leader>tc"] = { "<cmd> Cheatsheet <CR>", desc = "Show cheatsheet" },
     ["<leader><leader>"] = {
