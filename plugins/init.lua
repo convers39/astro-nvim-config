@@ -214,6 +214,15 @@ return {
     end,
   },
 
+  ["folke/noice.nvim"] = {
+    config = function() require "user.plugins.noice" end,
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+
   -- telescope
   ["tom-anders/telescope-vim-bookmarks.nvim"] = {
     after = "telescope.nvim",
