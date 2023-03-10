@@ -7,10 +7,10 @@ return {
     ["<ESC>"] = { "<cmd>nohl<cr>", desc = "No highlight" },
     -- [";"] = { "<cmd>FineCmdline<cr>", nowait = true, desc = "Floating cmd input" },
     -- resize
-    ["<A-l>"] = { ":vertical resize +2<CR>" },
-    ["<A-h>"] = { ":vertical resize -2<CR>" },
-    ["<A-j>"] = { ":resize -2<CR>" },
-    ["<A-k>"] = { ":resize +2<CR>" },
+    ["<A-l>"] = { "<cmd>vertical resize +2<CR>" },
+    ["<A-h>"] = { "<cmd>vertical resize -2<CR>" },
+    ["<A-j>"] = { "<cmd>resize -2<CR>" },
+    ["<A-k>"] = { "<cmd>resize +2<CR>" },
     ["<A-=>"] = { "<C-w>=", desc = "Resize equal" },
 
     -- navigation
