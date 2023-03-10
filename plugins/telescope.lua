@@ -3,7 +3,7 @@ local fb_actions = require("telescope").extensions.file_browser.actions
 local lga_actions = require "telescope-live-grep-args.actions"
 
 -- NOTE: somehow have to put the setup here, did not work in init.lua
-require("neoclip").setup { enable_persistant_history = true }
+require "user.plugins.neoclip"
 
 return {
   defaults = {
