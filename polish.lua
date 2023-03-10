@@ -7,6 +7,7 @@ return function()
   set.foldlevel = 99
   -- set.cmdheight = 1
 
+  set.foldmethod = "expr"
   set.foldexpr = "nvim_treesitter#foldexpr()"
   -- set.foldmethod = "indent"
   set.fillchars = { eob = "-", fold = " " }

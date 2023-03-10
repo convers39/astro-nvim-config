@@ -139,7 +139,8 @@ return {
       { "kkharji/sqlite.lua", module = "sqlite" },
       { "nvim-telescope/telescope.nvim" },
     },
-    config = function() require("neoclip").setup() end,
+    after = "telescope.nvim",
+    config = function() require("telescope").load_extension "neoclip" end,
   },
 
   { "nacro90/numb.nvim" },
@@ -181,6 +182,7 @@ return {
   --   },
   --   config = function() require "user.plugins.fine-cmdline" end,
   -- },
+  -- t.clone()elescope
 
   ["folke/noice.nvim"] = {
     config = function() require "user.plugins.noice" end,

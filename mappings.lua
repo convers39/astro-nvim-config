@@ -151,6 +151,9 @@ return {
     },
     ["gpi"] = { "<CMD>lua require('goto-preview').goto_preview_implementation()<CR>", desc = "Preview implementations" },
     ["gpc"] = { "<CMD>lua require('goto-preview').close_all_win()<CR>", desc = "close preview windows" },
+    -- neoclip
+    ["<leader>nc"] = { "<cmd>Telescope neoclip<CR>", desc = "Show neoclip registers" },
+
     -- telescope
     -- ["<leader>tc"] = { "<cmd> Cheatsheet <CR>", desc = "Show cheatsheet" },
     ["<leader><leader>"] = {
