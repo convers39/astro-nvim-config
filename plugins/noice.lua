@@ -12,6 +12,13 @@ noice.setup {
         width = 60,
         height = "auto",
       },
+      border = {
+        style = "rounded",
+        padding = { 0, 1 },
+      },
+      win_options = {
+        winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
+      },
     },
     popupmenu = {
       relative = "editor",
@@ -44,12 +51,12 @@ noice.setup {
     },
   },
   messages = {
-    enabled = false, -- too annoying for every single message popup
-    -- view = "notify",
-    -- view_error = "notify",
-    -- view_warn = "notify",
-    -- view_history = "messages",
-    -- view_search = "virtualtext",
+    enabled = true,
+    view = "mini", -- redirect messages to mini
+    view_error = "notify",
+    view_warn = "notify",
+    view_history = "messages",
+    view_search = false,
   },
   lsp = {
     progress = { enabled = false },
