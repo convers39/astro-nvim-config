@@ -4,6 +4,8 @@ return {
     -- NOTE: conflict with split
     -- ["<C-s>"] = {":w!<CR>"},
     [";"] = { ":", nowait = true },
+    ["yc"] = { function() require("utils.fs").rel_path() end, desc = "Copy current file relative path" },
+
     ["<ESC>"] = { "<cmd>nohl<cr>", desc = "No highlight" },
     -- [";"] = { "<cmd>FineCmdline<cr>", nowait = true, desc = "Floating cmd input" },
     -- resize
