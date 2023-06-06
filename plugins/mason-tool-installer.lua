@@ -18,8 +18,8 @@ function M.setup()
       "terraform-ls",
 
       -- Formatter
-      -- "prettierd",
-      "prettier",
+      "prettierd",
+      -- "prettier",
       "stylua",
       "black",
       "yamlfmt",
@@ -29,7 +29,7 @@ function M.setup()
       "mypy",
       "hadolint",
       "eslint_d",
-      "eslint-lsp",
+      -- "eslint-lsp",
 
       -- Diagnostics
       -- "cspell",

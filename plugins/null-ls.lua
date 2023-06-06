@@ -20,17 +20,17 @@ return function(config)
   -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md
   config.sources = {
     -- Set a formatter
-    -- formatting.prettierd,
-    formatting.prettier,
+    formatting.prettierd,
+    -- formatting.prettier,
     formatting.rustfmt,
     formatting.stylua,
     formatting.black,
-    formatting.yamlfmt,
+    -- formatting.yamlfmt,
     -- Set a linter
     diagnostics.mypy,
     diagnostics.hadolint,
     -- diagnostics.cspell,
-    -- diagnostics.eslint_d,
+    diagnostics.eslint_d,
     code_actions.refactoring,
     code_actions.eslint_d,
     -- code_actions.eslint,
