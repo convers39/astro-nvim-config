@@ -115,6 +115,7 @@ return {
     -- git conflict
     ["gco"] = { "<cmd>GitConflictChooseOurs<CR>" },
     ["gct"] = { "<cmd>GitConflictChooseTheirs<CR>" },
+    ["gcB"] = { "<cmd>GitConflictChooseBase<CR>" },
     ["gcb"] = { "<cmd>GitConflictChooseBoth<CR>" },
     ["gcn"] = { "<cmd>GitConflictChooseNone<CR>" },
     ["gcj"] = { "<cmd>GitConflictNextConflict<CR>" },
@@ -124,13 +125,17 @@ return {
     -- gitsigns
     ["ghj"] = { function() require("gitsigns").next_hunk() end, desc = "Next git hunk" },
     ["ghk"] = { function() require("gitsigns").prev_hunk() end, desc = "Previous git hunk" },
-    ["gbl"] = { function() require("gitsigns").blame_line() end, desc = "View git blame" },
+    -- ["gbl"] = { function() require("gitsigns").blame_line() end, desc = "View git blame" },
     ["ghp"] = { function() require("gitsigns").preview_hunk() end, desc = "Preview git hunk" },
     ["ghr"] = { function() require("gitsigns").reset_hunk() end, desc = "Reset git hunk" },
     ["ghs"] = { function() require("gitsigns").stage_hunk() end, desc = "Stage git hunk" },
     ["ghu"] = { function() require("gitsigns").undo_stage_hunk() end, desc = "Unstage git hunk" },
     ["gbr"] = { function() require("gitsigns").reset_buffer() end, desc = "Reset git buffer" },
     -- ["gd"] = { function() require("gitsigns").diffthis() end, desc = "View git diff" },
+
+    -- git-blame
+    ["gbl"] = { "<cmd>GitBlameToggle<cr>", desc = "Toggle git blame" },
+    ["gbc"] = { "<cmd>GitBlameCopyFileURL<cr>", desc = "Copy current line remote url to clipboard" },
 
     -- docs
     -- ["ng"] = { "<cmd>lua require('neogen').generate()<cr>", noremap = true },

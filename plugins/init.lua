@@ -24,10 +24,12 @@ return {
 
   { "ggandor/lightspeed.nvim" },
 
-  { "andymass/vim-matchup" },
+  -- { "andymass/vim-matchup" },
 
   -- git
   { "tpope/vim-fugitive" },
+
+  { "f-person/git-blame.nvim" },
 
   ["sindrets/diffview.nvim"] = {
     after = "plenary.nvim",
