@@ -53,6 +53,11 @@ return {
     ["<A-K>"] = { "<cmd>call vm#commands#add_cursor_up(0, v:count1)<cr>" },
     ["<A-J>"] = { "<cmd>call vm#commands#add_cursor_down(0, v:count1)<cr>" },
 
+    -- quickfix list
+    ["qfj"] = { "<cmd>cnewer<cr>" },
+    ["qfk"] = { "<cmd>colder<cr>" },
+    ["qfo"] = { "<cmd>copen<cr>" },
+
     -- terminal
     ["<A-o>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle floating terminal" },
     ["<A-H>"] = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Toggle horizontal terminal" },
